@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page Smash</title>
+<style>
+  body { margin:0; font-family:system-ui,sans-serif; background:#f4f1ea; color:#222; overflow:hidden; cursor:crosshair; user-select:none; }
+  header { display:flex; gap:16px; align-items:center; padding:12px 24px; background:#fff; border-bottom:1px solid #ddd; }
+  header b { font-size:20px; margin-right:auto; }
+  main { max-width:900px; margin:24px auto; padding:0 16px; display:grid; gap:16px; grid-template-columns:repeat(3,1fr); }
+  h1 { grid-column:1/-1; margin:0; }
+  p { grid-column:1/-1; margin:0; line-height:1.5; }
+  .card { background:#fff; border-radius:8px; padding:16px; box-shadow:0 1px 4px #0002; }
+  .card div { height:80px; background:#cdd9e5; border-radius:4px; margin-bottom:8px; }
+  button { padding:8px 14px; border:0; border-radius:6px; background:#2d6cdf; color:#fff; font-size:14px; }
+  #hud { position:fixed; right:12px; bottom:12px; background:#000a; color:#fff; padding:8px 12px; border-radius:6px; font-size:14px; z-index:9; }
+  #hud a { color:#ffd166; cursor:pointer; }
+  .fall { position:fixed !important; margin:0 !important; z-index:5; pointer-events:none; }
+  .boom { position:fixed; width:6px; height:6px; background:#ff7a00; border-radius:50%; pointer-events:none; z-index:8; }
+</style>
+</head>
+<body>
+<header><b>My Fake Site</b><span>Home</span><span>About</span><span>Pricing</span><button>Sign up</button></header>
+<main>
+  <h1>Welcome to a very stable page</h1>
+  <p>Click anything to smash it. Each piece falls off the page. How much can you break?</p>
+  <div class="card"><div></div>Article one</div>
+  <div class="card"><div></div>Article two</div>
+  <div class="card"><div></div>Article three</div>
+  <div class="card"><div></div>Article four</div>
+  <div class="card"><div></div>Article five</div>
+  <div class="card"><div></div>Article six</div>
+</main>
+<div id="hud">Smashed: <span id="n">0</span> &middot; <a id="reset">reset</a></div>
+<script>
+const falling = [];
+let count = 0;
+const nEl = document.getElementById('n');
+const SKIP = new Set(['HTML','BODY','MAIN','HEADER']);
+
+addEventListener('click', e => {
+  let t = e.target;
+  if (SKIP.has(t.tagName) || t.closest('#hud') || t.classList.contains('fall')) return;
+  const r = t.getBoundingClientRect();
+  const ph = document.createElement('div');           // keep layout intact
+  ph.style.cssText = `width:${r.width}px;height:${r.height}px;grid-column:${getComputedStyle(t).gridColumn}`;
+  t.after(ph);
+  Object.assign(t.style, { left:r.left+'px', top:r.top+'px', width:r.width+'px', height:r.height+'px' });
+  t.classList.add('fall');
+  document.body.appendChild(t);
+  falling.push({ el:t, ph, x:r.left, y:r.top, vx:(Math.random()-.5)*8, vy:-6, rot:0, vr:(Math.random()-.5)*10 });
+  for (let i=0;i<14;i++) spark(e.clientX, e.clientY);
+  nEl.textContent = ++count;
+});
+
+function spark(x, y) {
+  const s = document.createElement('div'); s.className = 'boom';
+  document.body.appendChild(s);
+  let vx=(Math.random()-.5)*14, vy=(Math.random()-.8)*12, life=30;
+  (function step(){
+    x+=vx; y+=vy; vy+=.6; s.style.transform=`translate(${x}px,${y}px)`;
+    --life>0 ? requestAnimationFrame(step) : s.remove();
+  })();
+}
+
+(function loop(){
+  for (let i=falling.length-1;i>=0;i--) {
+    const f = falling[i];
+    f.vy += .7; f.x += f.vx; f.y += f.vy; f.rot += f.vr;
+    f.el.style.transform = `translate(${f.x - parseFloat(f.el.style.left)}px,${f.y - parseFloat(f.el.style.top)}px) rotate(${f.rot}deg)`;
+    if (f.y > innerHeight + 300) { f.el.remove(); falling.splice(i,1); }
+  }
+  requestAnimationFrame(loop);
+})();
+
+document.getElementById('reset').onclick = () => location.reload();
+</script>
+</body>
+</html>
