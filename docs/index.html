@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page Smash · Smash any webpage with a jetpack and five weapons</title>
+<meta name="description" content="Page Smash is an open-source browser extension for Chrome, Edge and Firefox: click the icon, fly a jetpack over the page and break its text and images apart with five physics weapons. MIT.">
+<meta name="theme-color" content="#ffe14d">
+<meta property="og:title" content="Page Smash · صفحه‌خردکن">
+<meta property="og:description" content="Fly a jetpack over any webpage and smash it to bits. Try it on this page.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mrzroot.github.io/page-smash/">
+<link rel="canonical" href="https://mrzroot.github.io/page-smash/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script>(function(){var d=document.documentElement,l='en';try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('mrz-lang')||'en'}catch(e){}if(l==='fa'){d.lang='fa';d.dir='rtl';d.setAttribute('data-lang','fa')}})()</script>
+<style>
+@font-face{font-family:Vazirmatn;src:url(fonts/vazirmatn-arabic.woff2) format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0600-06FF,U+0750-077F,U+200C-200E,U+FB50-FDFF,U+FE70-FEFC}
+:root{--y:#ffe14d;--y2:#fff3a6;--ink:#111;--red:#ff4d2e;--blue:#2f6bff;--pink:#ff5fa2;--mint:#3ddc97;--purple:#8a5cff;--paper:#fffdf3;
+--sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,Vazirmatn,sans-serif;--fa:Vazirmatn,"Segoe UI",Tahoma,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--y)}
+body{margin:0;color:var(--ink);font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;background:var(--y);background-image:radial-gradient(rgba(0,0,0,.13) 1.2px,transparent 1.6px);background-size:14px 14px}
+html[data-lang=fa] body{font-family:var(--fa);line-height:1.85}
+html[data-lang=en] [lang=fa],html[data-lang=fa] [lang=en]{display:none!important}
+a{color:inherit}
+code{font-family:var(--mono);font-size:.88em;background:#fff;border:2px solid var(--ink);border-radius:6px;padding:0 5px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.box{color:var(--ink);background:var(--paper);border:4px solid var(--ink);border-radius:18px;box-shadow:7px 7px 0 var(--ink)}
+html[dir=rtl] .box{box-shadow:-7px 7px 0 var(--ink)}
+/* nav */
+.top{position:sticky;top:0;z-index:20;background:var(--ink);color:#fff}
+.top .wrap{display:flex;align-items:center;gap:18px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px;text-decoration:none;letter-spacing:-.02em;font-style:italic;text-transform:uppercase}
+html[data-lang=fa] .brand{font-style:normal;text-transform:none}
+.brand img{width:32px;height:32px}
+.top nav{margin-inline-start:auto;display:flex;gap:20px;align-items:center;font-weight:800;font-size:14px}
+.top nav a{text-decoration:none}.top nav a:hover{color:var(--y)}
+.lang{display:flex;border:2px solid #fff;border-radius:10px;overflow:hidden}
+.lang button{background:none;border:0;color:#fff;font:900 12px var(--sans);padding:5px 10px;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--y);color:var(--ink)}
+.gh{background:var(--y);color:var(--ink);border-radius:10px;padding:5px 12px}
+.top nav a.gh:hover{color:var(--ink)}
+/* hero */
+.hero{padding:64px 0 80px;position:relative}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero .wrap>*{min-width:0}
+.sticker{display:inline-block;background:var(--pink);color:#fff;font:900 13px var(--sans);text-transform:uppercase;padding:6px 14px;border:3px solid var(--ink);border-radius:999px;transform:rotate(-3deg);box-shadow:3px 3px 0 var(--ink)}
+html[data-lang=fa] .sticker{text-transform:none;font-family:var(--fa)}
+h1{font-size:clamp(52px,8vw,112px);line-height:.86;margin:22px 0 22px;font-weight:900;text-transform:uppercase;letter-spacing:-.045em;font-style:italic}
+h1 .w{display:inline-block;color:#fff;-webkit-text-stroke:3px var(--ink);text-shadow:6px 6px 0 var(--ink);transform:rotate(-2deg)}
+h1 .r{color:var(--red);text-shadow:5px 5px 0 var(--ink)}
+html[data-lang=fa] h1{font-style:normal;letter-spacing:0;line-height:1.2;text-transform:none;font-size:clamp(46px,6.6vw,90px)}
+html[dir=rtl] h1 .w{text-shadow:-6px 6px 0 var(--ink)}html[dir=rtl] h1 .r{text-shadow:-5px 5px 0 var(--ink)}
+.lead{font-size:20px;font-weight:600;max-width:560px;margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border:4px solid var(--ink);border-radius:14px;font:900 17px var(--sans);text-decoration:none;cursor:pointer;background:#fff;color:var(--ink);box-shadow:5px 5px 0 var(--ink);transition:transform .08s,box-shadow .08s}
+html[data-lang=fa] .btn{font-family:var(--fa)}
+html[dir=rtl] .btn{box-shadow:-5px 5px 0 var(--ink)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.btn:active{transform:translate(4px,4px);box-shadow:1px 1px 0 var(--ink)}
+.btn.boom{background:var(--red);color:#fff;font-size:20px;text-transform:uppercase;font-style:italic}
+html[data-lang=fa] .btn.boom{text-transform:none;font-style:normal}
+.btn.boom .k{font:900 12px var(--mono);background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:6px;padding:1px 6px;font-style:normal}
+.touch{display:none;font-weight:800;font-size:14px;background:#fff;border:3px dashed var(--ink);border-radius:12px;padding:10px 14px;margin-top:16px}
+@media (hover:none),(pointer:coarse){.btn.boom{display:none}.touch{display:block}}
+/* comic panel */
+.panel{position:relative;padding:22px;transform:rotate(1.5deg)}
+.panel .bar{display:flex;gap:6px;margin-bottom:14px}
+.panel .bar i{width:12px;height:12px;border-radius:50%;border:2px solid var(--ink);background:#fff}
+.panel .bar i:first-child{background:var(--red)}.panel .bar i:nth-child(2){background:var(--y)}
+.panel .bar span{margin-inline-start:auto;font:700 12px var(--mono);background:#fff;border:2px solid var(--ink);border-radius:999px;padding:0 10px}
+.art{position:relative;height:330px;border:3px solid var(--ink);border-radius:12px;background:#fff;overflow:hidden}
+.art .ln{position:absolute;height:14px;border-radius:4px;background:#d9d4c4;transition:transform 1s cubic-bezier(.3,1.4,.5,1),opacity .4s}
+.art .hd{height:26px;background:var(--ink)}
+.art .im{height:90px;background:linear-gradient(135deg,var(--blue),var(--purple));border:2px solid var(--ink)}
+.art .pl{position:absolute;width:36px;height:36px;transition:all .6s cubic-bezier(.3,1.4,.5,1)}
+.art .pl b{position:absolute;left:10px;top:11px;width:20px;height:14px;background:#243047;border-radius:8px 3px 3px 8px;box-shadow:9px 1px 0 0 #d7e6ff}
+.art .pl i{position:absolute;left:0;top:15px;width:10px;height:6px;background:#ff8a3d;border-radius:6px;animation:fl .12s infinite alternate}
+@keyframes fl{to{width:14px;left:-4px}}
+.pow{position:absolute;font:900 30px var(--sans);font-style:italic;color:#fff;-webkit-text-stroke:2px var(--ink);background:var(--red);border:3px solid var(--ink);padding:6px 14px;clip-path:polygon(50% 0,61% 22%,85% 8%,78% 35%,100% 45%,78% 58%,92% 85%,63% 74%,50% 100%,38% 74%,8% 88%,22% 60%,0 45%,22% 34%,12% 8%,38% 22%);transform:scale(0) rotate(-10deg);transition:transform .25s cubic-bezier(.3,1.8,.5,1);padding:22px 30px;z-index:3}
+.pow.on{transform:scale(1) rotate(-10deg)}
+.bul{position:absolute;width:6px;height:6px;border-radius:50%;background:#ffb703;border:1px solid var(--ink)}
+/* sections */
+section{padding:90px 0;position:relative}
+.dark{background:var(--ink);color:#fff;background-image:radial-gradient(rgba(255,255,255,.08) 1.2px,transparent 1.6px);background-size:14px 14px}
+h2{font-size:clamp(38px,5.4vw,72px);line-height:.92;margin:14px 0 16px;font-weight:900;text-transform:uppercase;letter-spacing:-.04em;font-style:italic}
+html[data-lang=fa] h2{text-transform:none;letter-spacing:0;font-style:normal;line-height:1.3}
+.sub{font-size:19px;font-weight:600;max-width:680px;margin:0 0 44px}
+.dark .sub{color:#d9d4c4}
+.tag{display:inline-block;background:var(--y);color:var(--ink);border:3px solid var(--ink);font:900 13px var(--mono);padding:3px 12px;border-radius:8px;transform:rotate(-2deg);text-transform:uppercase}
+.dark .tag{border-color:var(--y)}
+html[data-lang=fa] .tag{font-family:var(--fa)}
+/* weapons */
+.weap{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.weap>*{min-width:0}
+.wp{background:var(--paper);color:var(--ink);border:4px solid var(--y);border-radius:18px;padding:18px;position:relative;transition:transform .15s}
+.wp:hover,.wp.sel{transform:translateY(-6px) rotate(-1deg)}
+.wp.sel{border-color:var(--red);box-shadow:0 0 0 4px var(--red)}
+.wp .key{position:absolute;top:-18px;inset-inline-end:14px;width:40px;height:40px;display:grid;place-items:center;background:var(--y);border:3px solid var(--ink);border-radius:10px;font:900 20px var(--mono);box-shadow:0 4px 0 var(--ink)}
+.wp .em{font-size:40px;line-height:1;margin:6px 0 10px;display:block}
+.wp h3{margin:0 0 10px;font-size:20px;font-weight:900}
+.wp dl{margin:0;font-size:14px}
+.wp dt{font:800 11px var(--mono);text-transform:uppercase;letter-spacing:.06em;margin-top:8px;display:flex;gap:6px;align-items:center}
+.wp dt:before{content:"";width:12px;height:16px;border:2px solid var(--ink);border-radius:6px;background:linear-gradient(90deg,var(--red) 50%,#fff 50%)}
+.wp dt.rc:before{background:linear-gradient(90deg,#fff 50%,var(--blue) 50%)}
+html[data-lang=fa] .wp dt{font-family:var(--fa);letter-spacing:0;font-size:12px}
+.wp dd{margin:2px 0 0}
+/* keyboard */
+.kbwrap{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.kbwrap>*{min-width:0}
+.kb{padding:22px;direction:ltr}
+.row{display:flex;gap:8px;margin-bottom:8px;justify-content:center}
+.kc{min-width:52px;height:52px;display:grid;place-items:center;background:#fff;border:3px solid var(--ink);border-radius:10px;font:900 16px var(--mono);box-shadow:0 5px 0 var(--ink);transition:transform .06s,box-shadow .06s,background .06s;padding:0 10px}
+.kc.dim{opacity:.35}
+.kc.w{min-width:240px}.kc.m{min-width:96px}
+.kc.on{transform:translateY(4px);box-shadow:0 1px 0 var(--ink);background:var(--y)}
+.kc.hot{background:var(--y2)}
+.kbnote{text-align:center;font:700 13px var(--mono);margin-top:10px}
+.ctl{list-style:none;margin:0;padding:0}
+.ctl li{display:flex;gap:14px;align-items:baseline;padding:10px 0;border-bottom:3px dashed var(--ink);font-weight:600}
+.ctl li b{font:900 14px var(--mono);background:#fff;border:2px solid var(--ink);border-radius:6px;padding:1px 8px;flex:none;min-width:110px;text-align:center}
+/* how */
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.how>*{min-width:0}
+.hw{padding:24px}
+.hw .n{font:900 italic 54px/1 var(--sans);color:var(--red);-webkit-text-stroke:2px var(--ink)}
+.hw h3{margin:6px 0 8px;font-size:22px;font-weight:900}
+.hw p{margin:0;font-weight:500}
+/* install */
+.inst{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.inst>*{min-width:0}
+.ib{padding:26px}
+.ib h3{display:flex;gap:12px;align-items:center;margin:0 0 14px;font-size:24px;font-weight:900}
+.ib h3 span.b{font:900 12px var(--mono);background:var(--ink);color:var(--y);border-radius:6px;padding:2px 8px}
+.ib ol{margin:0;padding-inline-start:22px;font-weight:600}
+.ib li{margin:8px 0}
+.cmd{display:flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border-radius:10px;padding:8px 8px 8px 14px;margin-top:14px;direction:ltr}
+.cmd code{flex:1;min-width:0;background:none;border:0;color:var(--y);white-space:nowrap;overflow-x:auto;padding:0}
+.copy{background:var(--y);border:2px solid #fff;border-radius:8px;font:900 12px var(--sans);padding:5px 10px;cursor:pointer;flex:none}
+.copy.ok{background:var(--mint)}
+/* faq */
+.faq{max-width:900px}
+details{color:var(--ink);background:var(--paper);border:4px solid var(--ink);border-radius:14px;margin-bottom:14px;padding:0 20px;box-shadow:4px 4px 0 var(--ink)}
+html[dir=rtl] details{box-shadow:-4px 4px 0 var(--ink)}
+summary{cursor:pointer;list-style:none;padding:16px 0;font-weight:900;font-size:18px;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font:900 26px/1 var(--mono);color:var(--red)}
+details[open] summary:after{content:"−"}
+details p{margin:0 0 18px;font-weight:500}
+.disc{color:var(--ink);margin-top:28px;font-weight:700;font-size:15px;background:#fff;border:3px dashed var(--ink);border-radius:12px;padding:14px 18px}
+.end{text-align:center;padding:100px 0}
+.end .cta{justify-content:center;margin-top:24px}
+footer{background:var(--ink);color:#d9d4c4;padding:26px 0;font-size:14px;font-weight:600}
+footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between}
+footer a{color:var(--y)}
+#exit{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:2147483647;display:none;background:var(--red);color:#fff;border:3px solid var(--ink);border-radius:999px;font:900 14px var(--sans);padding:10px 18px;cursor:pointer;box-shadow:0 4px 0 var(--ink)}
+html[data-lang=fa] #exit{font-family:var(--fa)}
+html.smashing #exit{display:block}
+@media (max-width:980px){.hero .wrap,.kbwrap,.inst{grid-template-columns:minmax(0,1fr)}.weap{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:30px}.how{grid-template-columns:minmax(0,1fr)}.panel{transform:none}}
+@media (max-width:640px){.top nav a.h,.gh{display:none}.hero{padding:40px 0 60px}section{padding:64px 0}.weap{grid-template-columns:minmax(0,1fr)}.art{height:260px}.kc{min-width:38px;height:42px;font-size:13px;padding:0 6px}.kc.w{min-width:150px}.kc.m{min-width:64px}.row{gap:5px}.ctl li b{min-width:90px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#"><img src="favicon.svg" alt=""><span lang="en">Page Smash</span><span lang="fa">صفحه‌خردکن</span></a>
+  <nav>
+    <a class="h" href="#weapons"><span lang="en">Weapons</span><span lang="fa">سلاح‌ها</span></a>
+    <a class="h" href="#controls"><span lang="en">Controls</span><span lang="fa">کنترل‌ها</span></a>
+    <a href="#install"><span lang="en">Install</span><span lang="fa">نصب</span></a>
+    <a class="h" href="#faq"><span lang="en">FAQ</span><span lang="fa">پرسش‌ها</span></a>
+    <a class="gh" href="https://github.com/mrzroot/page-smash">GitHub</a>
+    <div class="lang" role="group" aria-label="Language"><button type="button" data-set-lang="en">EN</button><button type="button" data-set-lang="fa">فا</button></div>
+  </nav>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+  <div>
+    <span class="sticker"><span lang="en">Chrome · Edge · Firefox</span><span lang="fa">کروم · اج · فایرفاکس</span></span>
+    <h1><span lang="en"><span class="w">Smash</span><br>any <span class="r">webpage.</span></span><span lang="fa"><span class="w">هر صفحه‌ای</span><br>را <span class="r">خرد کنید.</span></span></h1>
+    <p class="lead"><span lang="en">Click the toolbar icon and a little jetpack pilot drops onto your tab. Fly with WASD, aim with the mouse, and blow the page's words and images apart with five physics weapons.</span><span lang="fa">روی آیکون افزونه بزنید تا یک خلبان جت‌پک کوچک روی تب فرود بیاید. با WASD پرواز کنید، با ماوس نشانه بگیرید و کلمه‌ها و تصویرهای صفحه را با پنج سلاح فیزیکی از هم بپاشید.</span></p>
+    <div class="cta">
+      <button class="btn boom" type="button" id="smash">💥 <span lang="en">Smash this page</span><span lang="fa">همین صفحه را خرد کن</span> <span class="k">Esc</span></button>
+      <a class="btn" href="#install"><span lang="en">Install</span><span lang="fa">نصب</span></a>
+    </div>
+    <p class="touch"><span lang="en">🖱️ Smashing needs a keyboard and mouse. Open this page on a computer to try it live.</span><span lang="fa">🖱️ برای خرد کردن کیبورد و ماوس لازم است. این صفحه را روی کامپیوتر باز کنید تا زنده امتحانش کنید.</span></p>
+  </div>
+  <div class="box panel" aria-hidden="true">
+    <div class="bar"><i></i><i></i><i></i><span>news.example/article</span></div>
+    <div class="art" id="art"><div class="pow" id="pow">POW!</div></div>
+  </div>
+</div></section>
+
+<section class="dark" id="weapons"><div class="wrap">
+  <span class="tag"><span lang="en">Armory</span><span lang="fa">زرادخانه</span></span>
+  <h2><span lang="en">Five weapons.<br>Two modes each.</span><span lang="fa">پنج سلاح.<br>هرکدام دو حالت.</span></h2>
+  <p class="sub"><span lang="en">Press 1 to 5 to switch weapons. Left click fires the main mode and right click the alternate. Try the number keys now: the cards respond.</span><span lang="fa">با کلیدهای ۱ تا ۵ سلاح را عوض کنید. کلیک چپ حالت اصلی و کلیک راست حالت دوم است. همین حالا کلیدهای عددی را بزنید؛ کارت‌ها واکنش نشان می‌دهند.</span></p>
+  <div class="weap" id="weap">
+    <div class="wp"><span class="key">1</span><span class="em">🔫</span><h3><span lang="en">Machine gun</span><span lang="fa">مسلسل</span></h3><dl><dt><span lang="en">Left</span><span lang="fa">چپ</span></dt><dd><span lang="en">Rapid fire of small rounds</span><span lang="fa">رگبار گلوله‌های کوچک</span></dd><dt class="rc"><span lang="en">Right</span><span lang="fa">راست</span></dt><dd><span lang="en">Slower, heavy slugs with double damage</span><span lang="fa">گلولهٔ سنگین‌تر و کندتر با آسیب دوبرابر</span></dd></dl></div>
+    <div class="wp"><span class="key">2</span><span class="em">🧲</span><h3><span lang="en">Gravity</span><span lang="fa">گرانش</span></h3><dl><dt><span lang="en">Left</span><span lang="fa">چپ</span></dt><dd><span lang="en">Pulls nearby pieces toward you</span><span lang="fa">تکه‌های نزدیک را به سمت شما می‌کشد</span></dd><dt class="rc"><span lang="en">Right</span><span lang="fa">راست</span></dt><dd><span lang="en">Pushes them away</span><span lang="fa">آن‌ها را دور می‌کند</span></dd></dl></div>
+    <div class="wp"><span class="key">3</span><span class="em">🔥</span><h3><span lang="en">Flamethrower</span><span lang="fa">شعله‌افکن</span></h3><dl><dt><span lang="en">Left</span><span lang="fa">چپ</span></dt><dd><span lang="en">Short-range stream of embers</span><span lang="fa">جریان کوتاه‌برد اخگر</span></dd><dt class="rc"><span lang="en">Right</span><span lang="fa">راست</span></dt><dd><span lang="en">Fatter flames</span><span lang="fa">شعله‌های درشت‌تر</span></dd></dl></div>
+    <div class="wp"><span class="key">4</span><span class="em">⚡</span><h3><span lang="en">Laser</span><span lang="fa">لیزر</span></h3><dl><dt><span lang="en">Left</span><span lang="fa">چپ</span></dt><dd><span lang="en">Burns the first piece in its path</span><span lang="fa">اولین تکهٔ مسیر را می‌سوزاند</span></dd><dt class="rc"><span lang="en">Right</span><span lang="fa">راست</span></dt><dd><span lang="en">Pierces every piece in the line</span><span lang="fa">از همهٔ تکه‌های خط عبور می‌کند</span></dd></dl></div>
+    <div class="wp"><span class="key">5</span><span class="em">🕳️</span><h3><span lang="en">Black hole</span><span lang="fa">سیاه‌چاله</span></h3><dl><dt><span lang="en">Left</span><span lang="fa">چپ</span></dt><dd><span lang="en">Sucks everything in, then bursts</span><span lang="fa">همه‌چیز را می‌بلعد و بعد می‌ترکد</span></dd><dt class="rc"><span lang="en">Right</span><span lang="fa">راست</span></dt><dd><span lang="en">A smaller hole that repels</span><span lang="fa">چاله‌ای کوچک‌تر که پس می‌زند</span></dd></dl></div>
+  </div>
+</div></section>
+
+<section id="controls"><div class="wrap kbwrap">
+  <div class="box kb" id="kb" aria-label="Keyboard">
+    <div class="row"><span class="kc" data-k="Digit1">1</span><span class="kc" data-k="Digit2">2</span><span class="kc" data-k="Digit3">3</span><span class="kc" data-k="Digit4">4</span><span class="kc" data-k="Digit5">5</span></div>
+    <div class="row"><span class="kc dim">Q</span><span class="kc" data-k="KeyW">W</span><span class="kc dim">E</span><span class="kc" data-k="KeyR">R</span><span class="kc dim">T</span></div>
+    <div class="row"><span class="kc" data-k="KeyA">A</span><span class="kc" data-k="KeyS">S</span><span class="kc" data-k="KeyD">D</span><span class="kc dim">F</span><span class="kc dim">G</span></div>
+    <div class="row"><span class="kc m" data-k="ShiftLeft">Shift</span><span class="kc dim">Z</span><span class="kc dim">X</span><span class="kc dim">C</span><span class="kc" data-k="KeyN">N</span></div>
+    <div class="row"><span class="kc w" data-k="Space">Space</span></div>
+    <div class="kbnote"><span lang="en">↑ press keys to light them up</span><span lang="fa">↑ کلیدها را بزنید تا روشن شوند</span></div>
+  </div>
+  <div>
+    <span class="tag"><span lang="en">Controls</span><span lang="fa">کنترل‌ها</span></span>
+    <h2><span lang="en">Fly. Aim.<br>Wreck.</span><span lang="fa">پرواز. نشانه.<br>ویرانی.</span></h2>
+    <ul class="ctl">
+      <li><b>WASD / ←↑↓→</b><span lang="en">Fly the jetpack</span><span lang="fa">پرواز با جت‌پک</span></li>
+      <li><b>Mouse</b><span lang="en">Aim; left/right click to fire</span><span lang="fa">نشانه‌گیری؛ کلیک چپ/راست برای شلیک</span></li>
+      <li><b>1 – 5</b><span lang="en">Switch weapon</span><span lang="fa">تعویض سلاح</span></li>
+      <li><b>Space</b><span lang="en">Dash toward the crosshair</span><span lang="fa">دش به سمت نشانه</span></li>
+      <li><b>Shift + R</b><span lang="en">Restart this page</span><span lang="fa">شروع دوبارهٔ همین صفحه</span></li>
+      <li><b>Shift + N</b><span lang="en">Jump to a random Wikipedia page</span><span lang="fa">رفتن به یک صفحهٔ تصادفی ویکی‌پدیا</span></li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="dark"><div class="wrap">
+  <span class="tag"><span lang="en">Under the hood</span><span lang="fa">زیر کاپوت</span></span>
+  <h2><span lang="en">Real physics,<br>real page.</span><span lang="fa">فیزیک واقعی،<br>صفحهٔ واقعی.</span></h2>
+  <div class="how">
+    <div class="box hw"><div class="n">01</div><h3><span lang="en">Chop</span><span lang="fa">تکه‌تکه</span></h3><p><span lang="en">Headings, paragraphs, links, list items, table cells and images on screen are cut into word-sized pieces that keep their font, colour and background, up to 320 of them.</span><span lang="fa">تیترها، پاراگراف‌ها، لینک‌ها، آیتم‌های فهرست، خانه‌های جدول و تصویرهای روی صفحه به تکه‌هایی به اندازهٔ کلمه بریده می‌شوند و فونت، رنگ و پس‌زمینه‌شان را نگه می‌دارند؛ تا ۳۲۰ تکه.</span></p></div>
+    <div class="box hw"><div class="n">02</div><h3><span lang="en">Simulate</span><span lang="fa">شبیه‌سازی</span></h3><p><span lang="en">Each piece becomes a rigid body in <b>matter.js</b> with gravity, bounce and friction. Pieces take a few hits before breaking, and images are tougher.</span><span lang="fa">هر تکه در <b>matter.js</b> یک جسم صلب با گرانش، جهش و اصطکاک می‌شود. تکه‌ها پیش از شکستن چند ضربه می‌خورند و تصویرها مقاوم‌ترند.</span></p></div>
+    <div class="box hw"><div class="n">03</div><h3><span lang="en">Reset</span><span lang="fa">بازگشت</span></h3><p><span lang="en">Smash most of the page and a banner offers Restart or Keep going. It's purely visual: reload and the page is back. CSS background images aren't smashed.</span><span lang="fa">وقتی بیشتر صفحه خرد شد، بنری «شروع دوباره» یا «ادامه» پیشنهاد می‌دهد. همه‌چیز فقط ظاهری است: با بارگذاری دوباره صفحه برمی‌گردد. تصویرهای پس‌زمینهٔ CSS خرد نمی‌شوند.</span></p></div>
+  </div>
+</div></section>
+
+<section id="install"><div class="wrap">
+  <span class="tag"><span lang="en">Install</span><span lang="fa">نصب</span></span>
+  <h2><span lang="en">Load it up.</span><span lang="fa">بارش کنید.</span></h2>
+  <p class="sub"><span lang="en">Not in the stores yet, so install from source. It takes about a minute.</span><span lang="fa">هنوز در فروشگاه‌ها نیست؛ از سورس نصبش کنید. حدود یک دقیقه طول می‌کشد.</span></p>
+  <div class="inst">
+    <div class="box ib"><h3>Chrome / Edge <span class="b">MV3</span></h3><ol>
+      <li><span lang="en">Clone or download the repo.</span><span lang="fa">مخزن را کلون یا دانلود کنید.</span></li>
+      <li><span lang="en">Open <code>chrome://extensions</code> or <code>edge://extensions</code>.</span><span lang="fa"><code>chrome://extensions</code> یا <code>edge://extensions</code> را باز کنید.</span></li>
+      <li><span lang="en">Turn on <b>Developer mode</b>.</span><span lang="fa"><b>Developer mode</b> را روشن کنید.</span></li>
+      <li><span lang="en"><b>Load unpacked</b> → pick the repo folder (its <code>manifest.json</code> is the Chrome/Edge one) or <code>dist/chrome</code>.</span><span lang="fa"><b>Load unpacked</b> ← پوشهٔ مخزن (که <code>manifest.json</code>ِ کروم/اج را دارد) یا <code>dist/chrome</code> را انتخاب کنید.</span></li></ol>
+      <div class="cmd"><code id="c1">git clone https://github.com/mrzroot/page-smash.git</code><button class="copy" type="button" data-copy="c1">Copy</button></div></div>
+    <div class="box ib"><h3>Firefox <span class="b">128+</span></h3><ol>
+      <li><span lang="en">Build both packages: <code>bash scripts/pack.sh</code> (needs Python 3).</span><span lang="fa">هر دو بسته را بسازید: <code>bash scripts/pack.sh</code> (پایتون ۳ لازم است).</span></li>
+      <li><span lang="en">Open <code>about:debugging#/runtime/this-firefox</code>.</span><span lang="fa"><code>about:debugging#/runtime/this-firefox</code> را باز کنید.</span></li>
+      <li><span lang="en"><b>Load Temporary Add-on</b> → <code>dist/firefox/manifest.json</code>.</span><span lang="fa"><b>Load Temporary Add-on</b> ← <code>dist/firefox/manifest.json</code>.</span></li></ol>
+      <div class="cmd"><code id="c2">cd page-smash &amp;&amp; bash scripts/pack.sh</code><button class="copy" type="button" data-copy="c2">Copy</button></div>
+      <p style="margin:12px 0 0;font-size:14px;font-weight:600"><span lang="en">The script also writes ready-to-share <code>page-smash-chrome.zip</code> and <code>page-smash-firefox.zip</code>.</span><span lang="fa">اسکریپت فایل‌های <code>page-smash-chrome.zip</code> و <code>page-smash-firefox.zip</code> را هم برای اشتراک می‌سازد.</span></p></div>
+  </div>
+</div></section>
+
+<section id="faq" class="dark"><div class="wrap faq">
+  <span class="tag">FAQ</span>
+  <h2><span lang="en">Questions,<br>before impact.</span><span lang="fa">پرسش‌ها،<br>پیش از برخورد.</span></h2>
+  <details><summary><span lang="en">Does it break the website?</span><span lang="fa">سایت را خراب می‌کند؟</span></summary><p><span lang="en">No. It only rearranges what's drawn in your own tab. Nothing is sent or changed on the server, and a reload brings the page back.</span><span lang="fa">نه. فقط چیزی را که در تب خودتان کشیده شده جابه‌جا می‌کند. چیزی به سرور فرستاده یا در آن تغییر داده نمی‌شود و با بارگذاری دوباره صفحه برمی‌گردد.</span></p></details>
+  <details><summary><span lang="en">Which pages can I smash?</span><span lang="fa">کدام صفحه‌ها را می‌شود خرد کرد؟</span></summary><p><span lang="en">Regular <code>http</code> and <code>https</code> pages. Browsers don't let extensions touch internal pages such as <code>chrome://</code> or the extension stores.</span><span lang="fa">صفحه‌های معمولی <code>http</code> و <code>https</code>. مرورگرها اجازه نمی‌دهند افزونه‌ها به صفحه‌های داخلی مثل <code>chrome://</code> یا فروشگاه افزونه دست بزنند.</span></p></details>
+  <details><summary><span lang="en">What permissions does it use?</span><span lang="fa">چه دسترسی‌هایی می‌گیرد؟</span></summary><p><span lang="en"><code>activeTab</code> and <code>scripting</code> to start on the tab you click, and <code>storage</code> to remember a pending smash when you jump to a random page. No analytics and no network calls.</span><span lang="fa"><code>activeTab</code> و <code>scripting</code> برای شروع روی تبی که کلیک می‌کنید و <code>storage</code> برای به خاطر سپردن خرد کردنِ در انتظار هنگام رفتن به صفحهٔ تصادفی. بدون آنالیتیکس و بدون درخواست شبکه.</span></p></details>
+  <details><summary><span lang="en">Why does Firefox forget it after a restart?</span><span lang="fa">چرا فایرفاکس بعد از ری‌استارت فراموشش می‌کند؟</span></summary><p><span lang="en">Unsigned add-ons load as temporary add-ons in release Firefox. Load it again from <code>about:debugging</code> after restarting.</span><span lang="fa">افزونه‌های امضانشده در نسخهٔ عادی فایرفاکس موقت بارگذاری می‌شوند. بعد از ری‌استارت دوباره از <code>about:debugging</code> بارش کنید.</span></p></details>
+  <details><summary><span lang="en">Is this Page Rage?</span><span lang="fa">این همان Page Rage است؟</span></summary><p><span lang="en">No. The idea comes from "smash the page" toys, but Page Smash is original. It doesn't copy Page Rage's code, art or name and isn't affiliated with its maker.</span><span lang="fa">نه. ایده از بازی‌های «خرد کردن صفحه» آمده، اما Page Smash اثر مستقلی است؛ کد، نقاشی و اسم Page Rage را کپی نمی‌کند و به سازنده‌اش وابسته نیست.</span></p></details>
+  <p class="disc"><span lang="en">The “Smash this page” button runs the extension's real <code>game.js</code> and bundled <code>matter.js</code> 0.20 (MIT) right here. Press <b>Esc</b> or the red button to stop.</span><span lang="fa">دکمهٔ «همین صفحه را خرد کن» همان <code>game.js</code>ِ واقعی افزونه و <code>matter.js</code> نسخهٔ ۰٫۲۰ (MIT) را همین‌جا اجرا می‌کند. برای توقف <b>Esc</b> یا دکمهٔ قرمز را بزنید.</span></p>
+</div></section>
+
+<section class="end"><div class="wrap">
+  <h2><span lang="en">Go on.<br>Break something.</span><span lang="fa">بفرمایید.<br>یه چیزی رو بشکنید.</span></h2>
+  <div class="cta"><button class="btn boom" type="button" data-smash>💥 <span lang="en">Smash this page</span><span lang="fa">همین صفحه را خرد کن</span></button><a class="btn" href="https://github.com/mrzroot/page-smash">★ GitHub</a></div>
+</div></section>
+</main>
+<footer><div class="wrap">
+  <span>Page Smash · MIT · <span lang="en">by</span><span lang="fa">ساختهٔ</span> <a href="https://mrzroot.github.io/">M-R-Z (@mrzroot)</a> · <span lang="en">not affiliated with Page Rage</span><span lang="fa">بدون وابستگی به Page Rage</span></span>
+  <span><a href="https://mrzroot.github.io/projects/"><span lang="en">More projects</span><span lang="fa">پروژه‌های دیگر</span></a></span>
+</div></footer>
+
+<script>
+(function(){
+  var R=document.documentElement,$=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+  var TITLES={en:'Page Smash · Smash any webpage with a jetpack and five weapons',fa:'صفحه‌خردکن · هر صفحهٔ وب را با جت‌پک و پنج سلاح خرد کنید'};
+  function setLang(l,save){R.setAttribute('data-lang',l);R.lang=l;R.dir=l==='fa'?'rtl':'ltr';document.title=TITLES[l];
+    $$('[data-set-lang]').forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-set-lang')===l))});
+    if(save)try{localStorage.setItem('mrz-lang',l)}catch(e){}}
+  setLang(R.getAttribute('data-lang')||'en');
+  $$('[data-set-lang]').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-set-lang'),true)})});
+  $$('[data-copy]').forEach(function(b){b.onclick=function(){var t=document.getElementById(b.getAttribute('data-copy')).textContent;if(navigator.clipboard)navigator.clipboard.writeText(t).then(function(){b.classList.add('ok');setTimeout(function(){b.classList.remove('ok')},1300)})}});
+
+  /* real game: load the extension's game.js + matter.js on demand */
+  var loaded=false;
+  function css(){var l=document.createElement('link');l.rel='stylesheet';l.href='game.css';document.head.appendChild(l)}
+  function js(src,cb){var s=document.createElement('script');s.src=src;s.onload=cb;document.body.appendChild(s)}
+  function smash(){if(loaded)return;loaded=true;R.classList.add('smashing');
+    try{sessionStorage.setItem('pageSmash','1')}catch(e){}
+    css();js('matter.min.js',function(){js('game.js',function(){setTimeout(function(){var b=document.createElement('button');b.id='exit';b.type='button';b.textContent=R.lang==='fa'?'✕ توقف (Esc)':'✕ Stop smashing (Esc)';b.addEventListener('click',stop);document.body.appendChild(b)},400)})})}
+  function stop(){try{sessionStorage.removeItem('pageSmash')}catch(e){}location.reload()}
+  try{if(sessionStorage.getItem('pageSmash')==='1')smash()}catch(e){}
+  $('#smash').addEventListener('click',function(){scrollTo({top:0,behavior:'instant'});smash()});
+  $$('[data-smash]').forEach(function(b){b.addEventListener('click',smash)});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&loaded)stop()},true);
+
+  /* keyboard + weapon cards light up */
+  var cards=$$('#weap .wp');
+  function key(e,down){var k=$('#kb [data-k="'+(e.code==='ShiftRight'?'ShiftLeft':e.code)+'"]');if(k)k.classList.toggle('on',down);
+    var a={ArrowUp:'KeyW',ArrowLeft:'KeyA',ArrowDown:'KeyS',ArrowRight:'KeyD'}[e.code];if(a){var k2=$('#kb [data-k="'+a+'"]');if(k2)k2.classList.toggle('on',down)}
+    if(down&&/^Digit[1-5]$/.test(e.code)&&!loaded){var i=+e.code.slice(5)-1;cards.forEach(function(c,j){c.classList.toggle('sel',j===i)})}}
+  addEventListener('keydown',function(e){key(e,true)});addEventListener('keyup',function(e){key(e,false)});
+  var demoKeys=['KeyW','KeyD','Digit1','Space','KeyA','Digit4','KeyS'],di=0;
+  setInterval(function(){if(loaded)return;var k=$('#kb [data-k="'+demoKeys[di%demoKeys.length]+'"]');if(k){k.classList.add('hot');setTimeout(function(){k.classList.remove('hot')},600)}di++},900);
+
+  /* hero comic: a looping mini-smash animation */
+  var art=$('#art'),pow=$('#pow'),L=[];
+  var spec=[[16,16,'hd',60],[16,54,'',88],[16,76,'',80],[16,98,'',86],[16,128,'im',40],[60,128,'',46],[60,150,'',42],[60,172,'',38],[60,194,'',44],[16,236,'',90],[16,258,'',84],[16,280,'',70]];
+  spec.forEach(function(s){var d=document.createElement('div');d.className='ln '+s[2];d.style.left=s[0]+'px';d.style.top=s[1]+'px';d.style.width=s[3]+'%';if(s[2]==='im')d.style.width='36%';
+    if(s[0]===60){d.style.left='42%';d.style.width=(s[3]+10)+'%'}art.appendChild(d);L.push(d)});
+  var pl=document.createElement('div');pl.className='pl';pl.innerHTML='<i></i><b></b>';art.appendChild(pl);
+  function loop(){pl.style.left='75%';pl.style.top='60%';L.forEach(function(d){d.style.transform='none';d.style.opacity=1});pow.classList.remove('on');
+    setTimeout(function(){pl.style.left='62%';pl.style.top='38%'},700);
+    setTimeout(function(){for(var i=0;i<8;i++)(function(i){setTimeout(function(){var b=document.createElement('div');b.className='bul';b.style.left='62%';b.style.top='42%';art.appendChild(b);
+      b.animate([{transform:'translate(0,0)'},{transform:'translate('+(-200-i*12)+'px,'+(-70+i*24)+'px)'}],{duration:320}).onfinish=function(){b.remove()}},i*70)})(i)},1300);
+    setTimeout(function(){pow.style.left='18%';pow.style.top='30%';pow.classList.add('on');
+      L.forEach(function(d,i){var x=(Math.random()-.5)*260,y=180+Math.random()*200,r=(Math.random()-.5)*160;d.style.transform='translate('+x+'px,'+y+'px) rotate('+r+'deg)'})},1800);
+    setTimeout(function(){pow.classList.remove('on')},2700)}
+  loop();setInterval(loop,4600);
+})();
+</script>
+</body>
+</html>
