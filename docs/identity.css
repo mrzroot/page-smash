@@ -27,3 +27,6 @@ canvas.fx{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-eve
 .brand{white-space:nowrap}
 html[lang=fa] h1,html[data-lang=fa] h1{text-shadow:none}
 @media(max-width:520px){.brand{font-size:1.05em}}
+
+/* QA: keep the "A" (automatic) badge anchored to the theme button */
+html .mrz-tt{position:relative}
