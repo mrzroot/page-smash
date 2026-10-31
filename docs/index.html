@@ -293,20 +293,23 @@ html[data-theme=dark] .kc.dim{color:#98a2c4}
 <section id="install"><div class="wrap">
   <span class="tag"><span lang="en">Install</span><span lang="fa">نصب</span></span>
   <h2><span lang="en">Load it up.</span><span lang="fa">بارش کنید.</span></h2>
-  <p class="sub"><span lang="en">Not in the stores yet, so install from source. It takes about a minute.</span><span lang="fa">هنوز در فروشگاه‌ها نیست؛ از سورس نصبش کنید. حدود یک دقیقه طول می‌کشد.</span></p>
+  <p class="sub"><span lang="en">Not in the extension stores yet. Download the ready-made zip from the <a href="https://github.com/mrzroot/page-smash/releases/tag/v1.0.0">v1.0.0 release</a> and load it in about a minute.</span><span lang="fa">هنوز در فروشگاه افزونه‌ها نیست. فایل zip آماده را از <a href="https://github.com/mrzroot/page-smash/releases/tag/v1.0.0">انتشار v1.0.0</a> دانلود کنید و در حدود یک دقیقه نصبش کنید.</span></p>
   <div class="inst">
     <div class="box ib"><h3>Chrome / Edge <span class="b">MV3</span></h3><ol>
-      <li><span lang="en">Clone or download the repo.</span><span lang="fa">مخزن را کلون یا دانلود کنید.</span></li>
-      <li><span lang="en">Open <code>chrome://extensions</code> or <code>edge://extensions</code>.</span><span lang="fa"><code>chrome://extensions</code> یا <code>edge://extensions</code> را باز کنید.</span></li>
-      <li><span lang="en">Turn on <b>Developer mode</b>.</span><span lang="fa"><b>Developer mode</b> را روشن کنید.</span></li>
-      <li><span lang="en"><b>Load unpacked</b> → pick the repo folder (its <code>manifest.json</code> is the Chrome/Edge one) or <code>dist/chrome</code>.</span><span lang="fa"><b>Load unpacked</b> ← پوشهٔ مخزن (که <code>manifest.json</code>ِ کروم/اج را دارد) یا <code>dist/chrome</code> را انتخاب کنید.</span></li></ol>
-      <div class="cmd"><code id="c1">git clone https://github.com/mrzroot/page-smash.git</code><button class="copy" type="button" data-copy="c1">Copy</button></div></div>
+      <li><span lang="en">Download <a href="https://github.com/mrzroot/page-smash/releases/download/v1.0.0/page-smash-chrome.zip"><code>page-smash-chrome.zip</code></a> and unzip it.</span><span lang="fa"><a href="https://github.com/mrzroot/page-smash/releases/download/v1.0.0/page-smash-chrome.zip"><code>page-smash-chrome.zip</code></a> را دانلود و از حالت فشرده خارج کنید.</span></li>
+      <li><span lang="en">Open <code>chrome://extensions</code> or <code>edge://extensions</code> and turn on <b>Developer mode</b>.</span><span lang="fa"><code>chrome://extensions</code> یا <code>edge://extensions</code> را باز کنید و <b>Developer mode</b> را روشن کنید.</span></li>
+      <li><span lang="en"><b>Load unpacked</b> → pick the unzipped folder. Pin the icon and click it on any tab.</span><span lang="fa"><b>Load unpacked</b> ← پوشهٔ بازشده را انتخاب کنید. آیکون را سنجاق کنید و روی هر تبی بزنید.</span></li></ol>
+      <a class="btn" href="https://github.com/mrzroot/page-smash/releases/download/v1.0.0/page-smash-chrome.zip">⬇ <span lang="en">Chrome / Edge zip</span><span lang="fa">zip کروم / اج</span></a></div>
     <div class="box ib"><h3>Firefox <span class="b">128+</span></h3><ol>
-      <li><span lang="en">Build both packages: <code>bash scripts/pack.sh</code> (needs Python 3).</span><span lang="fa">هر دو بسته را بسازید: <code>bash scripts/pack.sh</code> (پایتون ۳ لازم است).</span></li>
+      <li><span lang="en">Download <a href="https://github.com/mrzroot/page-smash/releases/download/v1.0.0/page-smash-firefox.zip"><code>page-smash-firefox.zip</code></a>.</span><span lang="fa"><a href="https://github.com/mrzroot/page-smash/releases/download/v1.0.0/page-smash-firefox.zip"><code>page-smash-firefox.zip</code></a> را دانلود کنید.</span></li>
       <li><span lang="en">Open <code>about:debugging#/runtime/this-firefox</code>.</span><span lang="fa"><code>about:debugging#/runtime/this-firefox</code> را باز کنید.</span></li>
-      <li><span lang="en"><b>Load Temporary Add-on</b> → <code>dist/firefox/manifest.json</code>.</span><span lang="fa"><b>Load Temporary Add-on</b> ← <code>dist/firefox/manifest.json</code>.</span></li></ol>
-      <div class="cmd"><code id="c2">cd page-smash &amp;&amp; bash scripts/pack.sh</code><button class="copy" type="button" data-copy="c2">Copy</button></div>
-      <p style="margin:12px 0 0;font-size:14px;font-weight:600"><span lang="en">The script also writes ready-to-share <code>page-smash-chrome.zip</code> and <code>page-smash-firefox.zip</code>.</span><span lang="fa">اسکریپت فایل‌های <code>page-smash-chrome.zip</code> و <code>page-smash-firefox.zip</code> را هم برای اشتراک می‌سازد.</span></p></div>
+      <li><span lang="en"><b>Load Temporary Add-on</b> → pick the zip. Firefox removes temporary add-ons when it restarts.</span><span lang="fa"><b>Load Temporary Add-on</b> ← همان zip را انتخاب کنید. فایرفاکس افزونه‌های موقت را با بستن مرورگر حذف می‌کند.</span></li></ol>
+      <a class="btn" href="https://github.com/mrzroot/page-smash/releases/download/v1.0.0/page-smash-firefox.zip">⬇ <span lang="en">Firefox zip</span><span lang="fa">zip فایرفاکس</span></a>
+      <p style="margin:12px 0 0;font-size:14px;font-weight:600"><span lang="en">The Firefox build has had less testing than the Chrome one; please report anything odd.</span><span lang="fa">نسخهٔ فایرفاکس کمتر از نسخهٔ کروم آزموده شده است؛ هر مشکلی دیدید گزارش دهید.</span></p></div>
+    <div class="box ib"><h3><span lang="en">From source</span><span lang="fa">از سورس</span></h3><ol>
+      <li><span lang="en">Clone the repo and load the folder unpacked (Chrome/Edge), or build both zips yourself (needs Python 3).</span><span lang="fa">مخزن را کلون کنید و پوشه را unpacked بارگذاری کنید (کروم/اج)، یا هر دو zip را خودتان بسازید (پایتون ۳ لازم است).</span></li></ol>
+      <div class="cmd"><code id="c1" tabindex="0">git clone https://github.com/mrzroot/page-smash.git</code><button class="copy" type="button" data-copy="c1">Copy</button></div>
+      <div class="cmd"><code id="c2" tabindex="0">cd page-smash &amp;&amp; bash scripts/pack.sh</code><button class="copy" type="button" data-copy="c2">Copy</button></div></div>
   </div>
 </div></section>
 
