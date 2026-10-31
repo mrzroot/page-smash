@@ -13,7 +13,7 @@
 
 Bored of a web page? Click the Page Smash button and a small jetpack character flies onto the current tab. Aim with the
 mouse and break the page's text and pictures into pieces that fall and bounce with real physics. It is a toy: nothing
-is sent anywhere, the real site is not changed, and reloading the tab brings everything back.
+is sent anywhere and the real website is never changed (open it in a new tab and it is untouched).
 
 ## Quick start
 
@@ -46,7 +46,7 @@ is sent anywhere, the real site is not changed, and reloading the tab brings eve
 
 When you click the icon, the background script injects `game.js` and `game.css` into the active tab. The game measures
 the visible text blocks and images, hides the originals, and replaces each with a physics body drawn in the same place.
-Your weapons apply forces to those bodies. Everything happens inside that tab; reloading it restores the page.
+Your weapons apply forces to those bodies. Everything happens inside that tab. `Shift+R` restarts the same page in the same tab; a new tab shows the untouched page.
 
 ## Limits
 
@@ -58,7 +58,7 @@ Your weapons apply forces to those bodies. Everything happens inside that tab; r
 
 <div dir="rtl">
 
-**Page Smash** یک افزونه‌ی سرگرمی است. روی دکمه‌اش بزنی، یک آدمک جت‌پک‌دار روی همین صفحه می‌آید و می‌توانی متن و عکس‌های صفحه را با فیزیک واقعی خرد کنی. چیزی به جایی فرستاده نمی‌شود و با بارگذاری دوباره‌ی صفحه همه‌چیز برمی‌گردد.
+**Page Smash** یک افزونه‌ی سرگرمی است. روی دکمه‌اش بزنی، یک آدمک جت‌پک‌دار روی همین صفحه می‌آید و می‌توانی متن و عکس‌های صفحه را با فیزیک واقعی خرد کنی. چیزی به جایی فرستاده نمی‌شود و خود سایت هیچ تغییری نمی‌کند؛ اگر همان صفحه را در یک تب تازه باز کنی، دست‌نخورده است.
 
 **نصب در کروم و اج:** صفحه‌ی `chrome://extensions` را باز کن، Developer mode را روشن کن، Load unpacked را بزن و پوشه‌ی همین مخزن را انتخاب کن.
 
