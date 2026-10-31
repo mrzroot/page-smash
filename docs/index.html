@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-lang="en" dir="ltr">
+<html lang="fa" data-lang="fa" dir="rtl">
 <head>
 <meta charset="utf-8">
 <meta name="theme-color" content="#070b1a" media="(prefers-color-scheme: dark)">
@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://mrzroot.github.io/page-smash/">
 <link rel="canonical" href="https://mrzroot.github.io/page-smash/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<script>(function(){var d=document.documentElement,l='en';try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('mrz-lang')||'en'}catch(e){}if(l==='fa'){d.lang='fa';d.dir='rtl';d.setAttribute('data-lang','fa')}})()</script>
+<script>(function(){var d=document.documentElement,l='fa';try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('mrz-lang')||'fa'}catch(e){}if(l!=='en')l='fa';d.lang=l;d.dir=l==='fa'?'rtl':'ltr';d.setAttribute('data-lang',l)})()</script>
 <style>
 @font-face{font-family:Vazirmatn;src:url(fonts/vazirmatn-arabic.woff2) format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0600-06FF,U+0750-077F,U+200C-200E,U+FB50-FDFF,U+FE70-FEFC}
 :root{--stroke:var(--ink);--y:#ffe14d;--y2:#fff3a6;--ink:#111;--red:#ff4d2e;--blue:#2f6bff;--pink:#ff5fa2;--mint:#3ddc97;--purple:#8a5cff;--paper:#fffdf3;
@@ -338,7 +338,7 @@ html[data-theme=dark] .kc.dim{color:#98a2c4}
   function setLang(l,save){R.setAttribute('data-lang',l);R.lang=l;R.dir=l==='fa'?'rtl':'ltr';document.title=TITLES[l];
     $$('[data-set-lang]').forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-set-lang')===l))});
     if(save)try{localStorage.setItem('mrz-lang',l)}catch(e){}}
-  setLang(R.getAttribute('data-lang')||'en');
+  setLang(R.getAttribute('data-lang')||'fa');
   $$('[data-set-lang]').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-set-lang'),true)})});
   $$('[data-copy]').forEach(function(b){b.onclick=function(){var t=document.getElementById(b.getAttribute('data-copy')).textContent;if(navigator.clipboard)navigator.clipboard.writeText(t).then(function(){b.classList.add('ok');setTimeout(function(){b.classList.remove('ok')},1300)})}});
 
