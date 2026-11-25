@@ -22,6 +22,14 @@ is sent anywhere and the real website is never changed (open it in a new tab and
 3. **Firefox 128+:** run `bash scripts/pack.sh`, open `about:debugging#/runtime/this-firefox`, click **Load Temporary Add-on** and pick `dist/firefox/manifest.json`.
 4. Open any normal `http`/`https` page and click the Page Smash icon.
 
+## First run: practise on a spare tab
+
+1. Open a normal, disposable article tab (not a form or a document you are editing).
+2. Click the extension icon, use the arrow keys to move, and fire at an image. Confirm the counter changes.
+3. Switch weapons with `1`–`5`. When finished, reload the page to remove the overlay and restore the original view.
+
+If the extension button does nothing, first check that the tab shows an ordinary `http` or `https` page. Browser settings, extension stores and other restricted pages do not allow the add-on to start there.
+
 ## Features
 
 - Five weapons: machine gun, gravity gun, flamethrower, laser and black hole (keys `1` to `5`), each with a second mode on right-click.
