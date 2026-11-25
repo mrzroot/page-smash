@@ -1,5 +1,5 @@
 /* page-smash identity: "comic". Sky-blue halftone, Bangers, hard black outlines, cracks + flying debris. */
-@font-face{font-family:'Bangers';src:url(fonts/bangers-400.woff2) format('woff2');font-weight:400;font-display:swap}
+
 html[data-theme=light]:root{--y:#ffe14d;--y2:#c9efff;--paper:#fffdf3;--band:#8fd8ff;--sky:#7fd0ff;--sky2:#b9e8ff}
 html[data-theme=dark]:root{--sky:#101c4a;--sky2:#1b2d6e}
 h1,h2,.brand,.sticker,.btn{font-family:Bangers,Vazirmatn,Impact,sans-serif}

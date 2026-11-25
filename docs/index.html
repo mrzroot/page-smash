@@ -18,7 +18,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <script>(function(){var d=document.documentElement,l='fa';try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('mrz-lang')||'fa'}catch(e){}if(l!=='en')l='fa';d.lang=l;d.dir=l==='fa'?'rtl':'ltr';d.setAttribute('data-lang',l)})()</script>
 <style>
-@font-face{font-family:Vazirmatn;src:url(fonts/vazirmatn-arabic.woff2) format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0600-06FF,U+0750-077F,U+200C-200E,U+FB50-FDFF,U+FE70-FEFC}
+
 :root{--stroke:var(--ink);--y:#ffe14d;--y2:#fff3a6;--ink:#111;--red:#ff4d2e;--blue:#2f6bff;--pink:#ff5fa2;--mint:#3ddc97;--purple:#8a5cff;--paper:#fffdf3;
 --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,Vazirmatn,sans-serif;--fa:Vazirmatn,"Segoe UI",Tahoma,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
 *{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--y)}
@@ -213,7 +213,9 @@ html[data-theme=dark] .kc.on{background:var(--y);color:#0b1230}html[data-theme=d
 html[data-theme] .kc.dim{opacity:1;color:#5b6383;border-style:dashed}
 html[data-theme=dark] .kc.dim{color:#98a2c4}
 </style>
-<link rel="preload" href="fonts/bangers-400.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="identity.css"></head>
+<link rel="stylesheet" href="identity.css"><link rel="preload" href="fonts/Vazirmatn.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="redesign.css">
+</head>
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="#"><img src="favicon.svg" alt=""><span lang="en">Page Smash</span><span lang="fa">صفحه‌خردکن</span></a>
@@ -230,6 +232,7 @@ html[data-theme=dark] .kc.dim{color:#98a2c4}
 <main>
 <section class="hero"><div class="wrap">
   <div>
+    <div class="studio-index"><b>04</b><span lang="en">PLAYABLE CONTROL ROOM</span><span lang="fa">اتاق کنترل بازی</span></div>
     <span class="sticker"><span lang="en">Chrome · Edge · Firefox</span><span lang="fa">کروم · اج · فایرفاکس</span> · <a class="ver" href="https://github.com/mrzroot/page-smash/releases/tag/v1.0.0">v1.0.0</a></span>
     <h1><span lang="en"><span class="w">Smash</span><br>any <span class="r">webpage.</span></span><span lang="fa"><span class="w">هر صفحه‌ای</span><br>را <span class="r">خرد کنید.</span></span></h1>
     <p class="lead"><span lang="en">Click the toolbar icon and a little jetpack pilot drops onto your tab. Fly with WASD, aim with the mouse, and blow the page's words and images apart with five physics weapons.</span><span lang="fa">روی آیکون افزونه بزنید تا یک خلبان جت‌پک کوچک روی تب فرود بیاید. با WASD پرواز کنید، با ماوس نشانه بگیرید و کلمه‌ها و تصویرهای صفحه را با پنج سلاح فیزیکی از هم بپاشید.</span></p>
@@ -317,6 +320,7 @@ html[data-theme=dark] .kc.dim{color:#98a2c4}
 <section id="faq" class="dark"><div class="wrap faq">
   <span class="tag">FAQ</span>
   <h2><span lang="en">Questions,<br>before impact.</span><span lang="fa">پرسش‌ها،<br>پیش از برخورد.</span></h2>
+  <details><summary><span lang="en">Where should I try it first?</span><span lang="fa">بهتر است اولین بار کجا امتحانش کنم؟</span></summary><p><span lang="en">Use a spare article tab rather than a form with unsaved changes. Try the arrow keys and one click, then reload to restore the page. If the icon does nothing, try a normal HTTP or HTTPS page rather than browser settings or an extension store.</span><span lang="fa">یک مقاله را در تب جدا باز کنید، نه فرمی با تغییرات ذخیره‌نشده. با کلیدهای جهت حرکت کنید، یک بار کلیک کنید و صفحه را دوباره بارگذاری کنید. اگر افزونه فعال نشد، روی یک صفحهٔ عادی وب امتحان کنید.</span></p></details>
   <details><summary><span lang="en">Does it break the website?</span><span lang="fa">سایت را خراب می‌کند؟</span></summary><p><span lang="en">No. It only rearranges what's drawn in your own tab. Nothing is sent or changed on the server, and a reload brings the page back.</span><span lang="fa">نه. فقط چیزی را که در تب خودتان کشیده شده جابه‌جا می‌کند. چیزی به سرور فرستاده یا در آن تغییر داده نمی‌شود و با بارگذاری دوباره صفحه برمی‌گردد.</span></p></details>
   <details><summary><span lang="en">Which pages can I smash?</span><span lang="fa">کدام صفحه‌ها را می‌شود خرد کرد؟</span></summary><p><span lang="en">Regular <code>http</code> and <code>https</code> pages. Browsers don't let extensions touch internal pages such as <code>chrome://</code> or the extension stores.</span><span lang="fa">صفحه‌های معمولی <code>http</code> و <code>https</code>. مرورگرها اجازه نمی‌دهند افزونه‌ها به صفحه‌های داخلی مثل <code>chrome://</code> یا فروشگاه افزونه دست بزنند.</span></p></details>
   <details><summary><span lang="en">What permissions does it use?</span><span lang="fa">چه دسترسی‌هایی می‌گیرد؟</span></summary><p><span lang="en"><code>activeTab</code> and <code>scripting</code> to start on the tab you click, and <code>storage</code> to remember a pending smash when you jump to a random page. No analytics and no network calls.</span><span lang="fa"><code>activeTab</code> و <code>scripting</code> برای شروع روی تبی که کلیک می‌کنید و <code>storage</code> برای به خاطر سپردن خرد کردنِ در انتظار هنگام رفتن به صفحهٔ تصادفی. بدون آنالیتیکس و بدون درخواست شبکه.</span></p></details>
