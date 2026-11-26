@@ -215,7 +215,7 @@ html[data-theme=dark] .kc.dim{color:#98a2c4}
 </style>
 <link rel="stylesheet" href="identity.css"><link rel="preload" href="fonts/Vazirmatn.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="redesign.css">
-<link rel="stylesheet" href="/assets/studio-mark.css"></head>
+<link rel="stylesheet" href="/assets/studio-mark.css"><link rel="stylesheet" href="/assets/portfolio/embed.css"><script defer src="/assets/portfolio/exhibit.js"></script></head>
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="#"><img src="favicon.svg" alt=""><span lang="en">Page Smash</span><span lang="fa">صفحه‌خردکن</span></a>
@@ -247,11 +247,32 @@ html[data-theme=dark] .kc.dim{color:#98a2c4}
     <div class="art" id="art"><div class="pow" id="pow">POW!</div></div>
   </div>
 </div></section>
-<aside class="studio-project-entry" style="--entry-color:#ffad88">
-  <img src="/assets/thumbs/page-smash.webp" alt="" width="160" height="100" loading="lazy" decoding="async">
-  <div><strong>بوم بازی را انتخاب کن</strong><small>بخشی از بوم را نمایان کن</small></div>
-  <a href="/playground/?project=page-smash&amp;lang=fa">سناریو را امتحان کن ↗</a>
-</aside>
+<div class="atlas-embedded" data-motif="wipe" style="--exhibit-hue:1"><section class="exhibit-studio" id="portfolio-example" data-project="page-smash" data-motif="wipe" data-state="0" aria-labelledby="portfolio-example-title">
+    <div class="exhibit-studio-head"><div><p class="exhibit-kicker"><span class="pf-en" lang="en">Illustrative sample</span><span class="pf-fa" lang="fa">دادهٔ نمونه</span></p><h2 id="portfolio-example-title"><span class="pf-en" lang="en">Reveal the preview</span><span class="pf-fa" lang="fa">پیش‌نمایش را آشکار کن</span></h2></div>
+       <a href="/projects/guide/page-smash/"><span class="pf-en" lang="en">Interactive introduction</span><span class="pf-fa" lang="fa">معرفی تعاملی</span> <i class="exhibit-arrow" aria-hidden="true"></i></a></div>
+    <div class="exhibit-lab">
+      <div class="stage-picture" aria-hidden="true">
+        <div class="stage-sign"><i></i><i></i><i></i><strong dir="ltr">Page Smash</strong></div>
+        <img class="stage-cover" src="/assets/thumbs/page-smash.webp" width="720" height="450" alt="" loading="lazy">
+        <div class="stage-track" dir="ltr"></div>
+        <div class="stage-evidence" dir="ltr"><span dir="auto">preview · intact</span></div>
+      </div>
+      <div class="stage-work">
+        <p><span class="pf-en" lang="en">Try the visual transformation on a sample page, then restore the original view.</span><span class="pf-fa" lang="fa">تغییر بصری را روی یک صفحهٔ نمونه امتحان کن و بعد نمای اصلی را برگردان.</span></p>
+        <div class="stage-actions" role="group" aria-label="Example controls / کنترل‌های نمونه">
+          <button type="button" data-stage="1" aria-pressed="false"><span class="pf-en" lang="en">Reveal part of the canvas</span><span class="pf-fa" lang="fa">بخشی از بوم را نمایان کن</span><i class="exhibit-arrow" aria-hidden="true"></i></button><button type="button" data-stage="2" aria-pressed="false"><span class="pf-en" lang="en">Reveal the central section</span><span class="pf-fa" lang="fa">بخش مرکزی را نمایان کن</span><i class="exhibit-arrow" aria-hidden="true"></i></button>
+        </div>
+        <output class="stage-result" aria-live="polite"><span class="pf-en" lang="en">Try a response to see its effect.</span><span class="pf-fa" lang="fa">یک کار را انتخاب کن و اثرش را ببین.</span></output>
+        <div class="stage-foot">
+          <button type="button" data-stage="0" aria-pressed="true"><span class="pf-en" lang="en">Reset example</span><span class="pf-fa" lang="fa">بازنشانی نمونه</span></button>
+
+        </div>
+      </div>
+    </div>
+   </section>
+    <p class="exhibit-takeaway"><span class="pf-en" lang="en">Use the preview and reset to compare the page composition before and after a temporary effect.</span><span class="pf-fa" lang="fa">با پیش‌نمایش و بازنشانی، ترکیب صفحه را قبل و بعد از افکت موقت مقایسه کن.</span></p>
+    <script type="application/json" data-embed-project>{"entries":[{"id":"page-smash","group":"showcase","motif":"wipe","color":"#ffad88","title":["Choose the game’s canvas","بوم بازی را انتخاب کن"],"brief":["Try the visual transformation on a sample page, then restore the original view.","تغییر بصری را روی یک صفحهٔ نمونه امتحان کن و بعد نمای اصلی را برگردان."],"actions":[["Reveal part of the canvas","بخشی از بوم را نمایان کن"],["Reveal the central section","بخش مرکزی را نمایان کن"]],"outcomes":[["A small area changes, keeping the rest of the page as a reference.","ناحیه‌ای کوچک تغییر می‌کند و بقیهٔ صفحه به‌عنوان مرجع می‌ماند."],["A larger area shifts the emphasis and reveals the backing.","تغییر ناحیهٔ بزرگ‌تر، مرکز توجه را جابه‌جا می‌کند و لایهٔ زیر را نشان می‌دهد."]],"evidence":[["preview · intact"],["edge · 22%"],["center · 54%"]],"name":"Page Smash","kicker":["Browser extension","افزونهٔ مرورگر"],"intro":["Fly a small jetpack through a disposable visual layer of a webpage. A browser toy, not an editor for the underlying site.","با جت‌پک در یک لایهٔ نمایشی از صفحه بازی کنید. یک سرگرمی مرورگری است، نه ویرایشگر سایت اصلی."],"hint":["Try it on a disposable page, then reload and confirm that the original page content is unchanged.","روی یک صفحهٔ آزمایشی امتحان کنید، سپس صفحه را دوباره بار بزنید و ببینید محتوای اصلی عوض نشده است."],"site":"/page-smash/","source":"https://github.com/mrzroot/page-smash","layout":"poster","hue":1,"image":"/assets/thumbs/page-smash.webp"}],"labels":{"map":["Project Atlas","اطلس پروژه‌ها"],"mapIntro":["Four ways to explore the projects. Choose a project to see what it does and open its interactive introduction.","چهار مسیر برای گشتن میان پروژه‌ها. یکی را انتخاب کن تا ببینی چه کار می‌کند و معرفی تعاملی‌اش را باز کنی."],"agents":["AI tooling","ابزارهای هوش مصنوعی"],"language":["Language and data","زبان و داده"],"systems":["Systems","سامانه‌ها"],"showcase":["Design and demos","طراحی و دمو"],"projects":["All projects","همهٔ پروژه‌ها"],"open":["Interactive introduction","معرفی تعاملی"],"test":["Try the example","نمونه را امتحان کن"],"story":["The situation","مسئله"],"reference":["Inspect the project","بررسی پروژه"],"source":["View source on GitHub","کد منبع در گیت‌هاب"],"demo":["Open project website","باز کردن سایت پروژه"],"guide":["Suggested first step","قدم اول پیشنهادی"],"sample":["Illustrative sample","دادهٔ نمونه"],"result":["What happens","نتیجه"],"choose":["Try a response to see its effect.","یک کار را انتخاب کن و اثرش را ببین."],"still":["Initial state","حالت اولیه"],"reset":["Reset example","بازنشانی نمونه"],"more":["Explore another project","یک پروژهٔ دیگر ببین"]}}</script>
+  </div>
 
 <section class="dark" id="weapons"><div class="wrap">
   <span class="tag"><span lang="en">Armory</span><span lang="fa">زرادخانه</span></span>
